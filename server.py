@@ -1,14 +1,14 @@
 import socket
-import threading #allows us to run multiple threads (multiple functions at once)
+import threading
 
 HEADER = 64
 PORT = 5050
-SERVER = socket.gethostbyname(socket.gethostname()) #gets the IP address of the computer that is running the server
-ADDR = (SERVER, PORT) #creates a tuple with the IP address and port number
+SERVER = "0.0.0.0"
+ADDR = (SERVER, PORT)
 FORMAT = "utf-8"
 DISCONNECT_MESSAGE = "!DISCONNECT"
 
-server = socket.socket(socket.AF_INET, socket.SOCK_STREAM) #creates a socket object
+server = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 server.bind(ADDR)
 
 def handle_client(conn, addr):
